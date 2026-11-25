@@ -26,7 +26,7 @@ flowchart LR
 
     subgraph Control_Loop["Control Loop"]
         DeepSORT -->|"Target Center (x, y)"| PID["Dual-Axis PID Controller<br/>Pan-Tilt Error Correction"]
-        PID -->|"Control Signal (ΔPan, ΔTilt)"| Actuator["Gimbal / Servo Motor Actuators"]
+        PID -->|"Control Signal (dPan, dTilt)"| Actuator["Gimbal / Servo Motor Actuators"]
     end
 
     subgraph HUD_Telemetry["HUD & Telemetry"]
