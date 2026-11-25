@@ -15,22 +15,22 @@ An end-to-end computer vision and closed-loop control system developed for the *
 
 ```mermaid
 flowchart LR
-    subgraph Video Input
-        Cam[Camera / UAV Flight Stream]
+    subgraph Video_Input["Video Input"]
+        Cam["Camera / UAV Flight Stream"]
     end
 
-    subgraph Deep Learning Inference
-        Cam -->|Frames (640x640)| YOLO[YOLOv8 Deep Neural Network<br/>CUDA Accelerated]
-        YOLO -->|Bounding Boxes & Confidences| DeepSORT[DeepSORT Tracker<br/>Kalman Filter + ReID]
+    subgraph Deep_Learning["Deep Learning Inference"]
+        Cam -->|"Frames (640x640)"| YOLO["YOLOv8 Deep Neural Network<br/>CUDA Accelerated"]
+        YOLO -->|"Bounding Boxes & Confidences"| DeepSORT["DeepSORT Tracker<br/>Kalman Filter + ReID"]
     end
 
-    subgraph Control Loop
-        DeepSORT -->|Target Center (x, y)| PID[Dual-Axis PID Controller<br/>Pan-Tilt Error Correction]
-        PID -->|Control Signal (ΔPan, ΔTilt)| Actuator[Gimbal / Servo Motor Actuators]
+    subgraph Control_Loop["Control Loop"]
+        DeepSORT -->|"Target Center (x, y)"| PID["Dual-Axis PID Controller<br/>Pan-Tilt Error Correction"]
+        PID -->|"Control Signal (ΔPan, ΔTilt)"| Actuator["Gimbal / Servo Motor Actuators"]
     end
 
-    subgraph HUD & Telemetry
-        DeepSORT --> Vis[Real-Time HUD Telemetry<br/>OpenCV & CVZone Display]
+    subgraph HUD_Telemetry["HUD & Telemetry"]
+        DeepSORT --> Vis["Real-Time HUD Telemetry<br/>OpenCV & CVZone Display"]
         PID --> Vis
     end
 ```
