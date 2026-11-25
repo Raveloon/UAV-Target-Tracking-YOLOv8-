@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Large model weights (Ultralytics auto-downloads them on first run)
+weights/yolov8m.pt
+weights/yolov8l.pt
+weights/yolov8x.pt
+*.pt.temp
+
+# Video outputs & recordings
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.wav
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
